@@ -26,18 +26,21 @@ Example: "2*4-4" -> 4; "-14.4/2+3.4*0" -> -7.2; ...
 -----------------------> Hard <-------------------------
 
 5. Parse string with any number of operands, with operators +, -, *, /, and braces ()
-Example: "2*(4-4)" -> 0; "-((8+2)*0.2))/(20+10/2)" -> -0.08; ...
+Example: "2*(4-4)" -> 0; "-((8+2)*0.2)/(20+10/2)" -> -0.08; ...
 
 ]]--
 
 local stringulator = require("modules.Stringulator");
+local test = require("tests.onSubmit_ReturnCorrectAnswer");
 
 stringulator.onSubmit = function( input )
-  print("Input: \""..input.."\"")
-  
   local answer = 0.0;
   
   -- your code here
   
   return answer;
 end
+
+-- Test your code. Results are printed in the console.
+-- Change second argument to "easy", "medium" or "hard" ( same as level you chose )
+test:run( stringulator.onSubmit, "easy" );
