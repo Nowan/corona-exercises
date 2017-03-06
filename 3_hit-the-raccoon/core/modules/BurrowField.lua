@@ -10,7 +10,7 @@ return function( size )
     burrow_field.burrows[row] = {};
     
     for col = 1, burrow_field.size do
-      local burrow = Burrow();
+      local burrow = Burrow( row, col );
       burrow.anchorX, burrow.anchorY = 0, 0;
       burrow.x = (col - 1) * (burrow.width + 80);
       burrow.y = (row - 1) * 220;

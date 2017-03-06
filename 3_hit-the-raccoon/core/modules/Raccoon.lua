@@ -30,7 +30,7 @@ return function( burrow )
   end
   
   function raccoon:emerge()
-    if not self.is_hidden then return end;
+    if self.is_hidden ~= nil and not self.is_hidden then return end;
     
     self.is_hidden = false;
     
@@ -59,11 +59,17 @@ return function( burrow )
     self.transition = transition.to( self, { 
       y = self.hidden_y, 
       time = 500, 
-      transition = easing.inQuart
+      transition = easing.inQuart,
+      onComplete = function()
+        self:removeSelf();
+        self = nil;
+      end
     } );
   end
   
   burrow:insert( raccoon );
+  burrow.raccoon = raccoon;
+  
   raccoon.y = raccoon.hidden_y;
   
   raccoon:setAngry( false );

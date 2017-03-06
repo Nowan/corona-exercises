@@ -15,7 +15,7 @@ local function Constructor()
   end
   
   function upper_bar:updatePoints( value )
-    self.points_insicator.label.text = tostring( value );
+    self.points_indicator.label.text = tostring( value );
   end
   
   local time_indicator = createTimeIndicator();
